@@ -1,5 +1,10 @@
 <script>
+import Navbar from './components/Navbar.vue';
+
 export default {
+  components: {
+		Navbar,
+	},
   data(){
     return {}
   },
@@ -11,5 +16,10 @@ export default {
 </script>
 
 <template>
-  <h1 class="text-red-500 text-xl font-bold">Hello World!</h1>
+  <div class="flex">
+    <Navbar></Navbar>
+    <main>
+      <router-view></router-view>
+    </main>
+  </div>
 </template>
