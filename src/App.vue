@@ -18,8 +18,8 @@ export default {
 <template>
   <div class="flex">
     <Navbar></Navbar>
-    <main class="overflow-y-auto p-4 pb-20 md:pb-4">
-      <router-view></router-view>
+    <main class="overflow-y-auto p-4 pb-20 md:pb-4 w-full">
+    	<router-view></router-view>
     </main>
   </div>
 </template>
