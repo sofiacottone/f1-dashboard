@@ -5,18 +5,21 @@ export const useF1Store = defineStore('f1', {
     state: () => ({
 
         /* apis */
+
         openF1Api: 'https://api.openf1.org/v1/',
         ergastApi: 'http://ergast.com/api/f1/',
         ergastApiSeason: 2024,
 
 
         drivers: [],
+
+        teamInfo: [],
+
         sessionKeys24: [],
-        driverPoints: [],
-        teamPoints: [],
         teams: {
             'Red Bull Racing':
             {
+                teamId: 'red_bull',
                 carImage: 'https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/red-bull-racing.png',
                 teamLogo: 'https://media.formula1.com/content/dam/fom-website/teams/2024/red-bull-racing-logo.png',
                 fullName: 'Oracle Red Bull Racing',
@@ -25,9 +28,11 @@ export const useF1Store = defineStore('f1', {
                 technicalChief: 'Pierre Waché',
                 chassis: 'RB20',
                 powerUnit: 'Honda RBPT',
+                colorId: 'T1',
             },
             'Mercedes':
             {
+                teamId: 'mercedes',
                 carImage: 'https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/mercedes.png',
                 teamLogo: 'https://media.formula1.com/content/dam/fom-website/teams/2024/mercedes-logo.png',
                 fullName: 'Mercedes-AMG PETRONAS F1 Team',
@@ -36,9 +41,11 @@ export const useF1Store = defineStore('f1', {
                 technicalChief: 'James Allison',
                 chassis: 'W15',
                 powerUnit: 'Mercedes',
+                colorId: 'T2',
             },
             'Ferrari':
             {
+                teamId: 'ferrari',
                 carImage: 'https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/ferrari.png',
                 teamLogo: 'https://media.formula1.com/content/dam/fom-website/teams/2024/ferrari-logo.png',
                 fullName: 'Scuderia Ferrari',
@@ -47,9 +54,11 @@ export const useF1Store = defineStore('f1', {
                 technicalChief: 'Enrico Gualtieri',
                 chassis: 'SF-24',
                 powerUnit: 'Ferrari',
+                colorId: 'T3',
             },
             'McLaren':
             {
+                teamId: 'mclaren',
                 carImage: 'https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/mclaren.png',
                 teamLogo: 'https://media.formula1.com/content/dam/fom-website/teams/2024/mclaren-logo.png',
                 fullName: 'McLaren Formula 1 Team',
@@ -58,9 +67,11 @@ export const useF1Store = defineStore('f1', {
                 technicalChief: 'Neil Houldey',
                 chassis: 'MCL38',
                 powerUnit: 'Mercedes',
+                colorId: 'T4',
             },
             'Aston Martin':
             {
+                teamId: 'aston_martin',
                 carImage: 'https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/aston-martin.png',
                 teamLogo: 'https://media.formula1.com/content/dam/fom-website/teams/2024/aston-martin-logo.png',
                 fullName: 'Aston Martin Aramco F1 Team',
@@ -69,9 +80,11 @@ export const useF1Store = defineStore('f1', {
                 technicalChief: 'Dan Fallows',
                 chassis: 'AMR24',
                 powerUnit: 'Mercedes',
+                colorId: 'T5',
             },
             'Alpine':
             {
+                teamId: 'alpine',
                 carImage: 'https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/alpine.png',
                 teamLogo: 'https://media.formula1.com/content/dam/fom-website/teams/2024/alpine-logo.png',
                 fullName: 'BWT Alpine F1 Team',
@@ -80,9 +93,11 @@ export const useF1Store = defineStore('f1', {
                 technicalChief: 'David Sanchez',
                 chassis: 'A524',
                 powerUnit: 'Renault',
+                colorId: 'T6',
             },
             'RB':
             {
+                teamId: 'rb',
                 carImage: 'https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/rb.png',
                 teamLogo: 'https://media.formula1.com/content/dam/fom-website/teams/2024/rb-logo.png',
                 fullName: 'Visa Cash App RB Formula One Team',
@@ -91,9 +106,11 @@ export const useF1Store = defineStore('f1', {
                 technicalChief: 'Jody Egginton',
                 chassis: 'VCARB 01',
                 powerUnit: 'Honda RBPT',
+                colorId: 'T7',
             },
             'Kick Sauber':
             {
+                teamId: 'sauber',
                 carImage: 'https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/kick-sauber.png',
                 teamLogo: 'https://media.formula1.com/content/dam/fom-website/teams/2024/kick-sauber-logo.png',
                 fullName: 'Stake F1 Team Kick Sauber',
@@ -102,9 +119,11 @@ export const useF1Store = defineStore('f1', {
                 technicalChief: 'James Key',
                 chassis: 'C44',
                 powerUnit: 'Ferrari',
+                colorId: 'T8'
             },
             'Haas F1 Team':
             {
+                teamId: 'haas',
                 carImage: 'https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/haas.png',
                 teamLogo: 'https://media.formula1.com/content/dam/fom-website/teams/2024/haas-logo.png',
                 fullName: 'MoneyGram Haas F1 Team',
@@ -113,9 +132,11 @@ export const useF1Store = defineStore('f1', {
                 technicalChief: 'Andrea De Zordo',
                 chassis: 'VF-24',
                 powerUnit: 'Ferrari',
+                colorId: 'T9'
             },
             'Williams':
             {
+                teamId: 'williams',
                 carImage: 'https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/williams.png',
                 teamLogo: 'https://media.formula1.com/content/dam/fom-website/teams/2024/williams-logo.png',
                 fullName: 'Williams Racing',
@@ -124,58 +145,16 @@ export const useF1Store = defineStore('f1', {
                 technicalChief: 'Pat Fry',
                 chassis: 'FW46',
                 powerUnit: 'Mercedes',
+                colorId: 'T10'
             },
         },
     }),
 
     actions: {
 
-        /** OpenF1 -> Driver / Season 
-        *
-        *   
-        *? GET https://api.openf1.org/v1/drivers
-        * 
-        ** Drivers: [
-        *   {
-        *        "broadcast_name": "M VERSTAPPEN",
-        *       "country_code": "NED",
-        *        "driver_number": 1,
-        *       "first_name": "Max",
-        *        "full_name": "Max VERSTAPPEN",
-        *       "headshot_url": "https://www.formula1.com/content/dam/fom-website/drivers/M/MAXVER01_Max_Verstappen/maxver01.png.transform/1col/image.png",
-        *        "last_name": "Verstappen",
-        *        "meeting_key": 1219,
-        *        "name_acronym": "VER",
-        *        "session_key": 9158,
-        *        "team_colour": "3671C6",
-        *        "team_name": "Red Bull Racing"
-        *    }] 
-        * 
-        *
-        *? GET https://api.openf1.org/v1/sessions
-        * 
-        **   Sessions: [
-        *   {
-        *        "circuit_key": 7,
-        *        "circuit_short_name": "Spa-Francorchamps",
-        *        "country_code": "BEL",
-        *        "country_key": 16,
-        *        "country_name": "Belgium",
-        *        "date_end": "2023-07-29T15:35:00+00:00",
-        *        "date_start": "2023-07-29T15:05:00+00:00",
-        *        "gmt_offset": "02:00:00",
-        *        "location": "Spa-Francorchamps",
-        *        "meeting_key": 1216,
-        *        "session_key": 9140,
-        *        "session_name": "Sprint",
-        *        "session_type": "Race",
-        *        "year": 2023
-        *   }]
-        * 
-        *   
-        */
+        // function to get drivers data
+        async getDriversData() {
 
-        async getOpenF1Drivers() {
             // check whether driver and session data are already in the localStorage
             const driversData = localStorage.getItem('driversData');
             const sessionsData = localStorage.getItem('sessionsData');
@@ -184,7 +163,7 @@ export const useF1Store = defineStore('f1', {
                 // if the data are in the localStorage, load data
                 this.drivers = JSON.parse(driversData);
                 this.sessionKeys24 = JSON.parse(sessionsData);
-                console.log('Dati caricati dal localStorage');
+                console.log('openF1 data uploaded from localStorage');
                 return;
             }
 
@@ -198,7 +177,9 @@ export const useF1Store = defineStore('f1', {
                             year: '2024',
                         }
                     }),
-                    this.getErgastDriverStandings()  // Ergast data call
+                    // Ergast calls
+                    this.getErgastDriverStandings(),
+                    // this.getErgastDriverResults(),
                 ]);
 
                 // associate sessions with the state variable
@@ -225,117 +206,72 @@ export const useF1Store = defineStore('f1', {
 
                     return {
                         ...driver,
-                        carImage: teamInfo.carImage || '',
-                        teamLogo: teamInfo.teamLogo || '',
-                        teamDetails: {
-                            fullName: teamInfo.fullName || 'N/A',
-                            base: teamInfo.base || 'N/A',
-                            teamChief: teamInfo.teamChief || 'N/A',
-                            technicalChief: teamInfo.technicalChief || 'N/A',
-                            chassis: teamInfo.chassis || 'N/A',
-                            powerUnit: teamInfo.powerUnit || 'N/A',
-                        },
+                        // carImage: teamInfo.carImage || '',
+                        team_logo: teamInfo.teamLogo || '',
+                        colour_id: teamInfo.colorId || '',
+                        team_id: teamInfo.teamId,
                         points: ergastDriver ? ergastDriver.points : 0,  // add points or 0 if not found
-                        position: ergastDriver ? ergastDriver.position : 'N/A'  // add position or 'N/A'
+                        results: {
+                            // !TODO
+                        },
                     };
                 });
                 localStorage.setItem('driversData', JSON.stringify(this.drivers));
 
             } catch (error) {
-                console.error("Errore durante il recupero dei dati:", error);
+                console.error("Failed to load openF1 data:", error);
             }
         },
 
-        /** Ergast -> Driver Stadings / Constructor Standings 
-        *
-        *   
-        *? GET https://ergast.com/api/f1/current/driverStandings
-        * 
-        ** Driver Standing: [
-        *   "MRData": {
-        *    "xmlns": "",
-        *    "series": "f1",
-        *    "url": "http://api.jolpi.ca/ergast/f1/2023/driverstandings/",
-        *    "limit": "30",
-        *    "offset": "0",
-        *    "total": "22",
-        *   "StandingsTable": {
-                "season": "2023",
-                "round": "22",
-                "StandingsLists": [
-                    {
-                        "season": "2023",
-                        "round": "22",
-                        "DriverStandings": [
-                            {
-                                "position": "1",
-                                "positionText": "1",
-                                "points": "575",
-                                "wins": "19",
-                                "Driver": {
-                                    "driverId": "max_verstappen",
-                                    "permanentNumber": "33",
-                                    "code": "VER",
-                                    "url": "http://en.wikipedia.org/wiki/Max_Verstappen",
-                                    "givenName": "Max",
-                                    "familyName": "Verstappen",
-                                    "dateOfBirth": "1997-09-30",
-                                    "nationality": "Dutch"
-                                },
-                                "Constructors": [
-                                    {
-                                        "constructorId": "red_bull",
-                                        "url": "http://en.wikipedia.org/wiki/Red_Bull_Racing",
-                                        "name": "Red Bull",
-                                        "nationality": "Austrian"
-                                    }
-                                ]
-                            }, 
-        * 
-        *
-        *? GET https://ergast.com/api/f1/current/constructorStandings
-        * 
-        **   Constructor Standings: 
-        *   {
-        *        "MRData": {
-        *            "xmlns": "http://ergast.com/mrd/1.5",
-        *            "series": "f1",
-        *            "url": "http://ergast.com/api/f1/current/constructorstandings.json",
-        *            "limit": "30",
-        *            "offset": "0",
-        *            "total": "10",
-        *            "StandingsTable": {
-                        "season": "2024",
-                        "StandingsLists": [
-                            {
-                                "season": "2024",
-                                "round": "14",
-                                "ConstructorStandings": [
-                                    {
-                                        "position": "1",
-                                        "positionText": "1",
-                                        "points": "408",
-                                        "wins": "7",
-                                        "Constructor": {
-                                            "constructorId": "red_bull",
-                                            "url": "http://en.wikipedia.org/wiki/Red_Bull_Racing",
-                                            "name": "Red Bull",
-                                            "nationality": "Austrian"
-                                        }
-                                    },
-        * 
-        *   this.driverPoints = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
-        */
-
+        // function to get driver standings
         async getErgastDriverStandings() {
             try {
                 const response = await axios.get(`${this.ergastApi}${this.ergastApiSeason}/driverStandings.json`);
                 return response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
             } catch (error) {
-                console.error('Failed to load data:', error.message);
+                console.error('Failed to load ergast driver data:', error.message);
                 return [];
             }
         },
+
+
+        /* function to get constructor standings  */
+        async getErgastConstructorStandings() {
+            try {
+
+                const response = await axios.get(`${this.ergastApi}${this.ergastApiSeason}/constructorStandings.json`);
+                const constructorStandings = response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
+
+                // add additional details to teams
+                this.teamInfo = constructorStandings.map((team) => {
+                    const teamId = Object.values(this.teams).find(t => t.teamId === team.Constructor.constructorId) || {};
+
+                    return {
+                        ...team,
+                        carImage: teamId.carImage || '',
+                        teamLogo: teamId.teamLogo || '',
+                        carDetails: {
+                            fullName: teamId.fullName || 'N/A',
+                            base: teamId.base || 'N/A',
+                            teamChief: teamId.teamChief || 'N/A',
+                            technicalChief: teamId.technicalChief || 'N/A',
+                            chassis: teamId.chassis || 'N/A',
+                            powerUnit: teamId.powerUnit || 'N/A',
+                        }
+                    }
+
+                })
+
+                console.log(this.teamInfo);
+
+            } catch (error) {
+                console.error('Failed to load ergast constructor data:', error.message);
+                return [];
+
+            }
+        },
+
+        /* #TODO race schedule - array con i dati dei circuiti (img etc) */
 
         showCurrentDriver(clickedIndex) {
             this.activeDriver = clickedIndex;
