@@ -6,6 +6,14 @@
   <link rel="icon" type="image/x-icon" href="./src/assets/f1.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Formula 1 Dashboard</title>
+
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
 </head>
 
 <body class="font-f1 dark:text-white dark:bg-gray-800">
